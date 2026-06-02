@@ -64,4 +64,5 @@ datalog
 dev-docs
 target
 **/gen/schemas
+folder-structure.md
 
