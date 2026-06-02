@@ -1,0 +1,24 @@
+{
+  "name": "@vben/backend-mock",
+  "version": "5.7.0",
+  "description": "",
+  "private": true,
+  "license": "MIT",
+  "author": "",
+  "type": "module",
+  "scripts": {
+    "build": "nitro build",
+    "start": "nitro dev",
+
+    "preview": "node .output/server/index.mjs"
+  },
+  "dependencies": {
+    "@faker-js/faker": "catalog:",
+    "jsonwebtoken": "catalog:",
+    "nitropack": "catalog:"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "catalog:",
+    "h3": "catalog:"
+  }
+}
