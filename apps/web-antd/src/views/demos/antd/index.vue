@@ -12,7 +12,7 @@ async function greet() {
   greetMsg.value = await invoke("greet", { name: name.value });
 }
 
-import { Button, Card, message, notification, Space } from 'ant-design-vue';
+import { Button, Card, message, notification, Space } from 'antdv-next';
 
 type NotificationType = 'error' | 'info' | 'success' | 'warning';
 
