@@ -2,21 +2,27 @@ import { createApp, watchEffect } from 'vue';
 
 import { registerAccessDirective } from '@vben/access';
 import { registerLoadingDirective } from '@vben/common-ui/es/loading';
+import { providePluginsOptions } from '@vben/plugins';
 import { preferences } from '@vben/preferences';
 import { initStores } from '@vben/stores';
 import '@vben/styles';
-import '@vben/styles/antd';
+import '@vben/styles/antdv-next';
+// import '@vben/styles/antd';
 
 import { useTitle } from '@vueuse/core';
 
 import { $t, setupI18n } from '#/locales';
+import { router } from '#/router';
 
 import { initComponentAdapter } from './adapter/component';
-import { initSetupVbenForm } from './adapter/form';
+// import { initSetupVbenForm } from './adapter/form';
+import { initSetupVbenForm, useVbenForm } from './adapter/form';
 import App from './app.vue';
-import { router } from './router';
+// import { router } from './router';
 
-import { isTauriEnv } from './utils/tauri-detector';
+import { initTimezone } from './timezone-init';
+
+import { isTauriEnv } from '#/utils/tauri-detector';
 
 // 如果在Tauri环境中，初始化Tauri特定功能
 if (isTauriEnv()) {
@@ -30,6 +36,11 @@ async function bootstrap(namespace: string) {
 
   // 初始化表单组件
   await initSetupVbenForm();
+
+  // 注入插件全局配置
+  providePluginsOptions({
+    form: { useVbenForm },
+  });
 
   // // 设置弹窗的默认配置
   // setDefaultModalProps({
@@ -54,6 +65,9 @@ async function bootstrap(namespace: string) {
   // 配置 pinia-tore
   await initStores(app, { namespace });
 
+  // 初始化时区HANDLER
+  initTimezone();
+
   // 安装权限指令
   registerAccessDirective(app);
 
@@ -63,6 +77,10 @@ async function bootstrap(namespace: string) {
 
   // 配置路由及路由守卫
   app.use(router);
+
+  // 配置@tanstack/vue-query
+  const { VueQueryPlugin } = await import('@tanstack/vue-query');
+  app.use(VueQueryPlugin);
 
   // 配置Motion插件
   const { MotionPlugin } = await import('@vben/plugins/motion');

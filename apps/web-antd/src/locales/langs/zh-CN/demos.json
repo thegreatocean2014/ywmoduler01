@@ -10,5 +10,18 @@
     "naive-ui": "Naive UI 版本",
     "element-plus": "Element Plus 版本",
     "tdesign": "TDesign Vue 版本"
+  },
+  "vxeTable": {
+    "title": "Vxe 表格",
+    "basic": "基础表格",
+    "remote": "远程加载",
+    "tree": "树形表格",
+    "fixed": "固定表头/列",
+    "virtual": "虚拟滚动",
+    "editCell": "单元格编辑",
+    "editRow": "行编辑",
+    "custom-cell": "自定义单元格",
+    "form": "搜索表单",
+    "viewed": "行标记"
   }
 }

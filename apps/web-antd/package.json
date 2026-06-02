@@ -28,10 +28,9 @@
     "#/*": "./src/*"
   },
   "dependencies": {
-    "@tauri-apps/api": "catalog:",
-    "@tauri-apps/plugin-shell": "catalog:",
-    "@tauri-apps/plugin-dialog": "catalog:",
-    "@tauri-apps/plugin-fs": "catalog:",
+    "@tanstack/vue-query": "catalog:",
+    "@vben-core/design": "workspace:*",
+    "@vben-core/menu-ui": "workspace:*",
     "@vben/access": "workspace:*",
     "@vben/common-ui": "workspace:*",
     "@vben/constants": "workspace:*",
@@ -47,10 +46,15 @@
     "@vben/types": "workspace:*",
     "@vben/utils": "workspace:*",
     "@vueuse/core": "catalog:",
-    "ant-design-vue": "catalog:",
+    "antdv-next": "catalog:",
     "dayjs": "catalog:",
+    "json-bigint": "catalog:",
     "pinia": "catalog:",
     "vue": "catalog:",
     "vue-router": "catalog:"
+  },
+  "devDependencies": {
+    "@playwright/test": "catalog:",
+    "@types/json-bigint": "catalog:"
   }
 }

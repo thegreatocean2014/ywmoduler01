@@ -40,6 +40,9 @@ function useNavigation() {
   const navigation = async (path: string) => {
     try {
       const route = routeMetaMap.get(path);
+
+      console.log('navigation route == ', route);
+
       const { openInNewWindow = false, query = {}, link } = route?.meta ?? {};
 
       // 检查是否有外链
@@ -53,6 +56,8 @@ function useNavigation() {
       } else if (openInNewWindow) {
         openRouteInNewWindow(resolveHref(path));
       } else {
+        console.log('path == ', path);
+        console.log('query == ', query);
         await router.push({
           path,
           query,

@@ -10,5 +10,18 @@
     "naive-ui": "Naive UI Version",
     "element-plus": "Element Plus Version",
     "tdesign": "TDesign Vue Version"
+  },
+  "vxeTable": {
+    "title": "Vxe Table",
+    "basic": "Basic Table",
+    "remote": "Remote Load",
+    "tree": "Tree Table",
+    "fixed": "Fixed Header/Column",
+    "virtual": "Virtual Scroll",
+    "editCell": "Edit Cell",
+    "editRow": "Edit Row",
+    "custom-cell": "Custom Cell",
+    "form": "Form Table",
+    "viewed": "Row Marker"
   }
 }
